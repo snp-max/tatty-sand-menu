@@ -30,6 +30,8 @@ export default function Home(){
     return `https://wa.me/${phone.replace(/\D/g,'')}?text=${encodeURIComponent(text)}`
   }
 
+  const onImgError = (e)=>{ e.currentTarget.src = '/images/placeholder.jpg' }
+
   return (
     <>
       <Head>
@@ -38,15 +40,24 @@ export default function Home(){
       </Head>
 
       <main className="page">
+        {/* Falling cups layer */}
+        <div className="cups-layer" aria-hidden>
+          {Array.from({length: 18}).map((_,i)=> <span key={i} className={`cup-fall c${(i%9)+1}`}>☕</span>)}
+        </div>
+
         <section className={heroBlack? 'hero black' : 'hero'}>
           <div className="hero-col">
             <h1 className="title">{menuData.brand.title}</h1>
             <div className="subtitle">{menuData.brand.subtitle}</div>
-            <div className="neon">{menuData.brand.neon}</div>
-            <p className="lead">Добро пожаловать в <strong>Tatty Sand</strong> — место, где начинается твоё пробуждение.<br/><em>Welcome to Tatty Sand — where your wake-up begins</em></p>
+            <div className="neonPlain">{menuData.brand.neon}</div>
+            <p className="lead">
+              {menuData.brand.welcomeRu}<br/>
+              <em>{menuData.brand.welcomeEn}</em><br/>
+              <span className="kz">{menuData.brand.welcomeKz}</span>
+            </p>
             <a className="cta" href="#grid">View Menu • Посмотреть меню</a>
             <div className="icons">
-              <span title="Wi‑Fi">📶</span><span title="Take away">🥡</span><span title="Non‑stop love">❤️</span><span title="Sweet">🍩</span>
+              <span title="Wi‑Fi">📶</span><span title="Take away">🥡</span><span title="Love">❤️</span><span title="Sweet">🍩</span>
             </div>
           </div>
           <div className="hero-art">
@@ -64,10 +75,10 @@ export default function Home(){
               <ul className="grid">
                 {sec.items.map((it, ii)=>(
                   <li key={ii} className="card glass card-shadow">
-                    {menuData.ui.showThumbnails && <img src={it.img} alt={it.name} className="thumb"/>}
+                    {menuData.ui.showThumbnails && <img src={it.img} alt={it.name} className="thumb" onError={onImgError}/>}
                     <div className="info">
                       <div className="name">{it.name}</div>
-                      <button className="btn" onClick={()=>add(it.name)}>Добавить (Add)</button>
+                      <button className="btn" onClick={()=>add(it.name)}>Добавить</button>
                     </div>
                   </li>
                 ))}
@@ -96,19 +107,38 @@ export default function Home(){
       </main>
 
       <style jsx>{`
-        :root{ --accent: ${menuData['ui']['accent']}; --glass:${menuData['ui']['glassBg']}; --bean:${menuData['ui']['beanAccent']}; }
+        :root{ --accent: ${menu_data['ui']['accent']}; --glass:${menu_data['ui']['glassBg']}; --bean:${menu_data['ui']['beanAccent']}; }
         .page{min-height:100vh;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
           background: radial-gradient(1200px 600px at 70% 0%, rgba(107,33,168,0.08), transparent 60%),
                       linear-gradient(180deg, #f5efe7 0%, #efe8e1 40%, #ece6df 100%);
-          color:#2c2321;
+          color:#2c2321; position:relative; overflow-x:hidden;
         }
-        .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;max-width:1200px;margin:36px auto 10px;padding:0 18px}
+        /* Falling cups */
+        .cups-layer{ position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden }
+        .cup-fall{ position:absolute; top:-10vh; font-size:22px; opacity:0.22; animation: fall 12s linear infinite }
+        .cup-fall.c1{ left:5%; animation-delay:0s }
+        .cup-fall.c2{ left:14%; animation-delay:2s }
+        .cup-fall.c3{ left:23%; animation-delay:4s }
+        .cup-fall.c4{ left:36%; animation-delay:1s }
+        .cup-fall.c5{ left:48%; animation-delay:3s }
+        .cup-fall.c6{ left:62%; animation-delay:5s }
+        .cup-fall.c7{ left:74%; animation-delay:6s }
+        .cup-fall.c8{ left:86%; animation-delay:7s }
+        .cup-fall.c9{ left:94%; animation-delay:8s }
+        @keyframes fall {
+          0% { transform: translateY(-10vh) rotate(0deg); opacity:0 }
+          10% { opacity:0.22 }
+          100% { transform: translateY(110vh) rotate(360deg); opacity:0.22 }
+        }
+
+        .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;max-width:1200px;margin:36px auto 10px;padding:0 18px; position:relative; z-index:1 }
         .hero.black{background:linear-gradient(#0a0a0a,#111);padding:28px 18px;border-radius:18px;box-shadow:0 22px 70px rgba(0,0,0,0.35)}
         .hero-col{align-self:center}
         .title{font-size:52px;margin:0}
         .subtitle{opacity:.9;letter-spacing:1px;margin-top:6px}
-        .neon{color:#caa3ff;text-shadow:0 0 10px rgba(170,90,255,.6),0 0 22px rgba(170,90,255,.4);margin-top:10px;font-weight:700}
-        .lead{margin-top:12px;opacity:.9}
+        .neonPlain{color: var(--accent); font-weight: 800; margin-top: 10px; font-size: 22px}
+        .kz{opacity:.95}
+        .lead{margin-top:12px;opacity:.9;line-height:1.5}
         .cta{display:inline-block;margin-top:14px;background:#2f1b2e;color:#fff;text-decoration:none;padding:10px 14px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.2)}
         .icons{margin-top:16px;display:flex;gap:10px;font-size:18px;opacity:.85}
         .hero-art{position:relative;height:360px}
@@ -124,7 +154,7 @@ export default function Home(){
         .b1{left:10%;top:8%}.b2{left:24%;top:34%}.b3{left:6%;top:68%}
         @keyframes swirl { from{ transform: rotate(0deg) } to{ transform: rotate(360deg) } }
 
-        .grid-wrap{max-width:1200px;margin:8px auto 40px;padding:0 18px}
+        .grid-wrap{max-width:1200px;margin:8px auto 40px;padding:0 18px; position:relative; z-index:1 }
         .section{margin-top:24px}
         .section-head{display:flex;justify-content:space-between;align-items:end}
         h2{margin:0 0 12px 0;font-size:26px;color:#3a2a27}
@@ -132,7 +162,7 @@ export default function Home(){
         .grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
         @media(max-width:980px){ .grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
         @media(max-width:720px){ .grid{grid-template-columns:1fr} .hero{grid-template-columns:1fr} .hero-art{height:220px} .cup{width:220px;height:220px} }
-        .glass{background:var(--glass);backdrop-filter:${menuData['ui']['backdrop']};border-radius:18px}
+        .glass{background:var(--glass);backdrop-filter:${menu_data['ui']['backdrop']};border-radius:18px}
         .card-shadow{box-shadow: 0 18px 40px rgba(0,0,0,0.12)}
         .card{display:flex;gap:14px;align-items:center;padding:14px}
         .thumb{width:84px;height:84px;object-fit:cover;border-radius:16px;background:#eee;box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05)}

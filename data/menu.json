@@ -3,7 +3,10 @@
     "title": "Tatty Sand",
     "subtitle": "COFFEE & EATERY",
     "neon": "Wake Up Taraz",
-    "slogan": "TS — Taste the Wake Up (Почувствуй пробуждение)"
+    "slogan": "TS — Taste the Wake Up (Почувствуй пробуждение)",
+    "welcomeRu": "Добро пожаловать в Tatty Sand — место, где начинается твоё пробуждение.",
+    "welcomeEn": "Welcome to Tatty Sand — where your wake-up begins",
+    "welcomeKz": "Tatty Sand-қа қош келдіңіз — ояну осында басталады."
   },
   "ui": {
     "accent": "#6b21a8",
