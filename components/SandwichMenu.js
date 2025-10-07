@@ -1,5 +1,5 @@
 
-import MenuItem from './MenuItem';
+import MenuItem from '../components/MenuItem';
 
 export default function SandwichMenu() {
   const sandwiches = [
@@ -11,7 +11,7 @@ export default function SandwichMenu() {
   ];
   return (
     <section>
-      <h2>Сэндвичи Tatty Sand (Tatty Sand Sandwiches)</h2>
+      <h2>Сэндвичи (Sandwiches)</h2>
       <div className="grid">
         {sandwiches.map((item, i) => (
           <MenuItem key={i} name={item.name} engName={item.eng} img={item.img} />

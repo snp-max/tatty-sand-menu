@@ -1,5 +1,5 @@
 
-import MenuItem from './MenuItem';
+import MenuItem from '../components/MenuItem';
 
 export default function CoffeeMenu() {
   const coffee = [
