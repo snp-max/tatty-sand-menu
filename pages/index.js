@@ -1,6 +1,6 @@
 
-import CoffeeMenu from '@/components/CoffeeMenu';
-import SandwichMenu from '@/components/SandwichMenu';
+import CoffeeMenu from '../components/CoffeeMenu';
+import SandwichMenu from '../components/SandwichMenu';
 
 export default function Home() {
   return (
