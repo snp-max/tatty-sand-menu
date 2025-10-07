@@ -32,6 +32,14 @@ export default function Home(){
 
   const onImgError = (e)=>{ e.currentTarget.src = '/images/placeholder.jpg' }
 
+  // Inline CSS variables to avoid SSR interpolation errors
+  const cssVars = {
+    '--accent': menuData.ui.accent,
+    '--glass': menuData.ui.glassBg,
+    '--bean': menuData.ui.beanAccent,
+    '--backdrop': menuData.ui.backdrop
+  }
+
   return (
     <>
       <Head>
@@ -39,7 +47,7 @@ export default function Home(){
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
       </Head>
 
-      <main className="page">
+      <main className="page" style={cssVars}>
         {/* Falling cups layer */}
         <div className="cups-layer" aria-hidden>
           {Array.from({length: 18}).map((_,i)=> <span key={i} className={`cup-fall c${(i%9)+1}`}>☕</span>)}
@@ -107,7 +115,6 @@ export default function Home(){
       </main>
 
       <style jsx>{`
-        :root{ --accent: ${menu_data['ui']['accent']}; --glass:${menu_data['ui']['glassBg']}; --bean:${menu_data['ui']['beanAccent']}; }
         .page{min-height:100vh;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
           background: radial-gradient(1200px 600px at 70% 0%, rgba(107,33,168,0.08), transparent 60%),
                       linear-gradient(180deg, #f5efe7 0%, #efe8e1 40%, #ece6df 100%);
@@ -162,7 +169,7 @@ export default function Home(){
         .grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
         @media(max-width:980px){ .grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
         @media(max-width:720px){ .grid{grid-template-columns:1fr} .hero{grid-template-columns:1fr} .hero-art{height:220px} .cup{width:220px;height:220px} }
-        .glass{background:var(--glass);backdrop-filter:${menu_data['ui']['backdrop']};border-radius:18px}
+        .glass{background:var(--glass);backdrop-filter: var(--backdrop); border-radius:18px}
         .card-shadow{box-shadow: 0 18px 40px rgba(0,0,0,0.12)}
         .card{display:flex;gap:14px;align-items:center;padding:14px}
         .thumb{width:84px;height:84px;object-fit:cover;border-radius:16px;background:#eee;box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05)}
