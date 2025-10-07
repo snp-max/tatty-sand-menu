@@ -1,0 +1,101 @@
+{
+  "ui": {
+    "bannerVariant": "default",
+    "showThumbnails": true
+  },
+  "contact": {
+    "whatsapp": "+77085977808",
+    "instagram": "tatty.sand",
+    "tiktok": "tatty_sand"
+  },
+  "sections": [
+    {
+      "titleRu": "Кофе",
+      "titleEn": "Coffee",
+      "items": [
+        {
+          "name": "Эспрессо (Espresso)",
+          "img": "/images/coffee/espresso.jpg"
+        },
+        {
+          "name": "Американо (Americano)",
+          "img": "/images/coffee/americano.jpg"
+        },
+        {
+          "name": "Капучино (Cappuccino)",
+          "img": "/images/coffee/cappuccino.jpg"
+        },
+        {
+          "name": "Латте (Latte)",
+          "img": "/images/coffee/latte.jpg"
+        },
+        {
+          "name": "Флэт уайт (Flat White)",
+          "img": "/images/coffee/flatwhite.jpg"
+        },
+        {
+          "name": "Мокко (Mocha)",
+          "img": "/images/coffee/mocha.jpg"
+        },
+        {
+          "name": "Раф (Raf)",
+          "img": "/images/coffee/raf.jpg"
+        },
+        {
+          "name": "Айс Латте (Iced Latte)",
+          "img": "/images/coffee/iced_latte.jpg"
+        },
+        {
+          "name": "Карамельный Латте (Caramel Latte)",
+          "img": "/images/coffee/caramel_latte.jpg"
+        },
+        {
+          "name": "Ванильный Латте (Vanilla Latte)",
+          "img": "/images/coffee/vanilla_latte.jpg"
+        },
+        {
+          "name": "Матча Латте (Matcha Latte)",
+          "img": "/images/coffee/matcha.jpg"
+        },
+        {
+          "name": "Какао (Cocoa)",
+          "img": "/images/coffee/cocoa.jpg"
+        }
+      ]
+    },
+    {
+      "titleRu": "Сэндвичи Tatty Sand",
+      "titleEn": "Tatty Sand Sandwiches",
+      "items": [
+        {
+          "name": "The Classic Drive (Классический колбасный)",
+          "img": "/images/sandwiches/classic_drive.jpg"
+        },
+        {
+          "name": "Spicy Nuggets Shot (Наггетсы в остром соусе)",
+          "img": "/images/sandwiches/spicy_nuggets.jpg"
+        },
+        {
+          "name": "Chicken Roll Up (Куриный рулет)",
+          "img": "/images/sandwiches/chicken_roll.jpg"
+        },
+        {
+          "name": "Hot Street Dog (Хот-дог)",
+          "img": "/images/sandwiches/hot_dog.jpg"
+        },
+        {
+          "name": "Cheesy Chick Melt (Курица с сыром)",
+          "img": "/images/sandwiches/cheesy_chick.jpg"
+        },
+        {
+          "name": "Sunny Chick (Курица с яйцом)",
+          "img": "/images/sandwiches/sunny_chick.jpg"
+        },
+        {
+          "name": "Hunter's Bite (Охотничьи колбаски)",
+          "img": "/images/sandwiches/hunters_bite.jpg"
+        }
+      ]
+    }
+  ]
+}
