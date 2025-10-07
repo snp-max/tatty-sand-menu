@@ -61,7 +61,7 @@
           "img": "/images/sandwiches/classic_drive.jpg"
         },
         {
-          "name": "Spicy Nuggets Shot (Наггетсы в остром соусе)",
+          "name": "Spicy Nuggets Rush (Наггетсы в остром соусе)",
           "img": "/images/sandwiches/spicy_nuggets.jpg"
         },
         {
@@ -71,6 +71,26 @@
         {
           "name": "Cheesy Chick Melt (Курица с сыром)",
           "img": "/images/sandwiches/cheesy_chick.jpg"
+        },
+        {
+          "name": "Sunny Chick (Курица с яйцом)",
+          "img": "/images/sandwiches/sunny_chick.jpg"
+        },
+        {
+          "name": "Hot Street Dog (Хот-дог)",
+          "img": "/images/sandwiches/hot_dog.jpg"
+        },
+        {
+          "name": "Club Duet (Клаб‑сэндвич Дуэт)",
+          "img": "/images/sandwiches/club_duet.jpg"
+        },
+        {
+          "name": "Hunter's Bite (Охотничьи колбаски)",
+          "img": "/images/sandwiches/hunters_bite.jpg"
+        },
+        {
+          "name": "Taste Mix Duo (Микс вкусов)",
+          "img": "/images/sandwiches/mix_duo.jpg"
         }
       ]
     }
