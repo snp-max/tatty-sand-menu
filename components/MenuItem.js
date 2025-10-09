@@ -1,11 +1,14 @@
-
-export default function MenuItem({ name, engName, img }) {
+export default function MenuItem({ name, engName, price, img }) {
   return (
     <div className="card">
-      <img src={img} alt={name} width="180" height="140" />
-      <div className="item-title">{name}</div>
-      <div className="item-sub">{engName}</div>
-      <button className="btn">Добавить</button>
+      <div className="thumb">
+        {/* Если картинка есть — покажем её, иначе оставим стилизованный круг */}
+        {img ? <img src={img} alt={name} /> : null}
+      </div>
+      <h3>{name}</h3>
+      <div className="sub">{engName}</div>
+      <div className="price">{price}</div>
+      <button className="btn-pill">Добавить</button>
     </div>
   );
 }

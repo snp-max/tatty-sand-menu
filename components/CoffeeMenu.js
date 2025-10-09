@@ -1,23 +1,27 @@
+import Image from "next/image";
 
-import MenuItem from '../components/MenuItem';
-
-export default function CoffeeMenu() {
+export default function CoffeeMenu({ onAdd }) {
   const coffee = [
-    { name: 'Американо', eng: 'Americano', img: '/coffee/americano.png' },
-    { name: 'Капучино', eng: 'Cappuccino', img: '/coffee/cappuccino.png' },
-    { name: 'Латте', eng: 'Latte', img: '/coffee/latte.png' },
-    { name: 'Мокко', eng: 'Mocha', img: '/coffee/mocha.png' },
-    { name: 'Эспрессо', eng: 'Espresso', img: '/coffee/espresso.png' },
-    { name: 'Флэт уайт', eng: 'Flat White', img: '/coffee/flatwhite.png' },
+    { name: "Американо", price: 700, img: "/coffee/americano.jpg" },
+    { name: "Капучино", price: 900, img: "/coffee/cappuccino.jpg" },
+    { name: "Латте", price: 900, img: "/coffee/latte.jpg" },
+    { name: "Мокко", price: 950, img: "/coffee/mocha.jpg" },
+    { name: "Эспрессо", price: 600, img: "/coffee/espresso.jpg" },
+    { name: "Флэт Уайт", price: 950, img: "/coffee/flatwhite.jpg" },
   ];
+
   return (
-    <section>
-      <h2>Кофе (Coffee)</h2>
-      <div className="grid">
-        {coffee.map((item, i) => (
-          <MenuItem key={i} name={item.name} engName={item.eng} img={item.img} />
-        ))}
-      </div>
-    </section>
+    <div className="grid">
+      {coffee.map((item, i) => (
+        <div className="card" key={i}>
+          <div className="thumb">
+            <Image src={item.img} alt={item.name} width={88} height={88} />
+          </div>
+          <h3>{item.name}</h3>
+          <p className="price">{item.price}₸</p>
+          <button className="btn-pill" onClick={() => onAdd(item)}>Добавить</button>
+        </div>
+      ))}
+    </div>
   );
 }
