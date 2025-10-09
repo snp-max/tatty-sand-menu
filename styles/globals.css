@@ -11,41 +11,110 @@ body { font-family: Arial, sans-serif; background: var(--bg-a); color: var(--tex
 
 .container { max-width: 1160px; margin: 0 auto; padding: 28px 24px 64px; }
 
-.hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: center; margin: 20px 0 36px; }
+/* ---------- HERO ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+  align-items: center;
+  margin: 20px 0 36px;
+}
 .brand h1 { font-size: 56px; font-weight: 900; color: var(--text); }
 .sand { font-style: italic; color: var(--purple); }
 .sub { font-size: 20px; font-weight: 600; margin-top: 6px; color: var(--purple); }
 .desc { margin-top: 14px; font-size: 16px; color: var(--muted); line-height: 1.5; }
 
-.hero-cup { width: 320px; height: 320px; margin-left: auto; border-radius: 50%; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.15); }
+.hero-cup {
+  width: 320px;
+  height: 320px;
+  margin-left: auto;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .15);
+}
 .hero-cup img { width: 100%; height: 100%; object-fit: cover; }
 
+/* ---------- CONTENT ---------- */
 .section-title { font-size: 28px; font-weight: 800; text-align: center; margin: 38px 0 18px; }
 
 .grid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
-.card { background: var(--card); border-radius: 26px; padding: 16px; box-shadow: 0 12px 34px rgba(0,0,0,.08); text-align: center; }
-.thumb { width: 88px; height: 88px; margin: 12px auto; border-radius: 50%; overflow: hidden; }
+.card {
+  background: var(--card);
+  border-radius: 26px;
+  padding: 16px;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, .08);
+  text-align: center;
+}
+.thumb { width: 100px; height: 100px; margin: 12px auto; border-radius: 50%; overflow: hidden; }
 .thumb img { width: 100%; height: 100%; object-fit: cover; }
 
-.price { display: inline-block; background: #f6efe6; padding: 6px 12px; border-radius: 999px; font-weight: 700; margin: 12px 0; }
+.price {
+  display: inline-block;
+  background: #f6efe6;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  margin: 12px 0;
+}
 
-.btn-pill { display: inline-block; padding: 10px 16px; border-radius: 999px; border: none; cursor: pointer; background: var(--purple); color: white; font-weight: 700; }
+.btn-pill {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: var(--purple);
+  color: white;
+  font-weight: 700;
+}
 .btn-pill:hover { opacity: 0.9; }
 
-.cart { margin: 40px 0; padding: 20px; border-radius: 16px; background: var(--card); box-shadow: 0 4px 18px rgba(0,0,0,.1); }
+/* ---------- CART ---------- */
+.cart {
+  margin: 40px 0;
+  padding: 20px;
+  border-radius: 16px;
+  background: var(--card);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, .1);
+}
 .cart ul { list-style: none; padding: 0; }
 .cart li { margin: 4px 0; }
 .total { font-weight: 700; margin: 10px 0; }
 
+/* ---------- FOOTER ---------- */
 .footer { margin-top: 60px; text-align: center; color: var(--muted); }
 .footer .socials a { margin: 0 10px; text-decoration: none; color: var(--purple); font-weight: 600; }
 .footer .socials a:hover { text-decoration: underline; }
 
-.ornament { position: fixed; top: 0; left: 0; width: 120px; height: 100%; background: url("/ornament.png") repeat-y center; background-size: contain; opacity: 0.08; z-index: -1; }
+/* ---------- ORNAMENT ---------- */
+.ornament {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100%;
+  background: url("/ornament.png") repeat-y center;
+  background-size: contain;
+  opacity: 0.08;
+  z-index: -1;
+}
 
-/* Анимация падающих чашек */
-.cups-animation { position: fixed; top: -150px; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; }
-.cup { position: absolute; width: 80px; animation: fall 8s linear infinite; opacity: 0.9; }
+/* ---------- ANIMATION ---------- */
+.cups-animation {
+  position: fixed;
+  top: -150px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+.cup {
+  position: absolute;
+  width: 80px;
+  animation: fall 8s linear infinite;
+  opacity: 0.9;
+}
 .cup.delay1 { left: 20%; animation-delay: 2s; }
 .cup.delay2 { left: 40%; animation-delay: 4s; }
 .cup.delay3 { left: 60%; animation-delay: 6s; }
@@ -55,3 +124,39 @@ body { font-family: Arial, sans-serif; background: var(--bg-a); color: var(--tex
   0% { top: -150px; transform: rotate(0deg); opacity: 0.9; }
   100% { top: 100%; transform: rotate(360deg); opacity: 0; }
 }
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .brand h1 { font-size: 42px; }
+  .sub { font-size: 18px; }
+  .desc { font-size: 15px; }
+
+  .hero-cup {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+  }
+
+  .ornament {
+    width: 80px;
+    opacity: 0.05;
+  }
+
+  .cup {
+    width: 60px;
+    opacity: 0.8;
+  }
+
+  .grid {
+    grid-template-columns: 1fr; /* по одной карточке */
+  }
+
+  .card {
+    width: 100%;
+    max-width: 350px;
+    margin: 0
